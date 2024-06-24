@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анализ БД</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+    .container {
+      text-align: center;
+    }
+    #sqlFileInput {
+      margin-bottom: 20px;
+    }
+    #analysisResult {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+{% block content %}
+<body>
+  <div class="container">
+    <div id="analysisResult">
+      <h1>Старый список слов: {{ word_list }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="word_input">Введите слова через запятую:</label><br>
+            <input type="text" id="word_input" name="word_input"><br><br>
+            <input type="submit" value="Подтвердить">
+              <p>Search a stock to begin!</p>
+              <img src="{% url 'plot' %}" alt="Graph Image">
+            
+        </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // JavaScript код для обработки действий пользователя и выполнения анализа
+    $(document).ready(function() {
+      $('#startAnalysisBtn').click(function() {
+        // Здесь можно добавить логику для загрузки файла и проведения анализа
+        // После завершения анализа показываем результат
+        $('#analysisImage').attr('src', 'путь_к_вашей_картинке').show();
+      });
+
+      $('#createDatabaseBtn').click(function() {
+        var databaseText = $('#databaseInput').val();
+        // Здесь можно добавить логику для создания базы данных на основе введенного текста
+      });
+    });
+  </script>
+</body>
+{% endblock %}
+</html>
