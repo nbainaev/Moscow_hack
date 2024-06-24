@@ -6,6 +6,7 @@ cd Moscow_hack
 python -m venv venv
 pip install -r ../requirements.txt
 ```
+Веса для модели необходимо положить в папку ```main/model_config```. Для этого их необходимо скачать по ссылке: https://drive.google.com/drive/folders/151a8y3fqAYLlJhmCiOZTwjS0d73RIB46?usp=sharing
 
 # Запуск
 
