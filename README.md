@@ -6,17 +6,19 @@ cd Moscow_hack
 python -m venv venv
 pip install -r ../requirements.txt
 ```
-Дополнительно необходимо поставить postgresql
-
-Создать .env в корне репозитория со следующим содержимым:
-```
-login=<db_login>
-password=<db_password>
-database=<db_name>
-```
-Выше login — имя пользователя postgresql, password — пароль пользователя postgresql, database — имя базы данных, в которой загружена информация с ПнД.
-Как создать базу данных? Для этого необходимо установить любой клиент СУБД, например pgAdmin последней версии. В клиенте требуется подключить базу данных нужной версии в выполнить SQL код, предоставленный в задании.
 
 # Запуск
 
-В любом редакторе кода выполнить код разделов JupiterNotebook файла с ранее созданным виртуальным окружением.
+Для запуска выполните следующие команды:
+```
+cd db_hider
+python3 manage.py runserver
+```
+
+# Docker
+Сервис будет доступен на 8000 порту
+```
+docker image build -t myimage .
+docker run myimage
+```
+
