@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анализ БД</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+    .container {
+      text-align: center;
+    }
+    #sqlFileInput {
+      margin-bottom: 20px;
+    }
+    #analysisResult {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+{% block content %}
+<body>
+  <div class="container">
+    <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="file">
+      <button type="submit">Загрузить</button>
+  </form>
+</body>
+{% endblock %}
+</html>

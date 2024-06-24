@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>Главная страница</h2>
+  <p>Welcome, {% if user.is_authenticated %}{{ user.username }}{% else %}anonimous{% endif %}!</p>
+  <p>
+    <strong>Зарегистрированных пользователей в системе: </strong> {{ count }}
+  </p>
+{% endblock %}
